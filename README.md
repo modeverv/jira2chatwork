@@ -1,4 +1,4 @@
-# JIRA to Chatwork webhook integration cgi
+# JIRA to Chatwork integration cgi via JIRA's webhook
 JIRAからChatworkに更新を投げるcgi  
 仕事で使いたいからでっちあげた
 
