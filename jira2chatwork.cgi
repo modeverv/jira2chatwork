@@ -6,7 +6,7 @@
 # CONFIG
 #
 # 対象roomidを設定してください
-# 例) https://www.chatwork.com/#!rid12345 の場合6012345
+# 例) https://www.chatwork.com/#!rid12345 の場合12345
 ROOMIDS = ['xxxxx']
 # APIKEYは適宜取得して設定してください
 APIKEY  = "xxxxxx"
