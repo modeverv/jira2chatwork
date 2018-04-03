@@ -8,11 +8,16 @@
 # QUERY: keyで渡される課題IDを識別するためののキー
 # ROOMS: POST対象のChatworkのルームID配列(複数対応)
 # ex https://www.chatwork.com/#!rid12345 の場合12345
-SETTING = { DEV: {
-              QUERY: "DEV",
-              ROOMS: ['12345']
-            }
-          }
+SETTING = {
+  DEV: {
+    QUERY: "DEV-",
+    ROOMS: ['12345','222222']
+  },
+  TEST: {
+    QUERY: "TEST-",
+    ROOMS: ['54321','11111']
+  },
+}
 # APIKEYは適宜取得して設定してください
 APIKEY  = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # JIRAのURLを設定してください
@@ -38,10 +43,20 @@ end
 ####################################
 # main
 ####################################
-cgi = CGI.new
 key = CGI.parse(ENV["QUERY_STRING"])["key"][0]
 rooms = get_target_rooms(key)
 message = "body=[info][title]JIRA UPDATE[/title]#{JIRAURL}#{key}[/info]"
+
+###################################
+# TEST
+=begin
+puts "<pre>"
+puts message + "<br/>"
+puts rooms
+exit
+=end
+###################################
+
 
 rooms.each do |rid|
   uri = URI.parse("https://api.chatwork.com/v2/rooms/#{rid}/messages")
