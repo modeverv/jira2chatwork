@@ -27,7 +27,7 @@ require 'net/http'
 print "Content-Type: text/html\n\n"
 
 def get_target_rooms(key)
-  SETTING.each do |key,value|
+  SETTING.each do |_, value|
     if key =~ /#{value[:QUERY]}/
       return value[:ROOMS]
     end
