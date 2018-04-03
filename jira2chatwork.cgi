@@ -39,8 +39,7 @@ end
 # main
 ####################################
 cgi = CGI.new
-params = cgi.params
-key = params['key'][0]
+key = CGI.parse(ENV["QUERY_STRING"])["key"][0]
 rooms = get_target_rooms(key)
 message = "body=[info][title]JIRA UPDATE[/title]#{JIRAURL}#{key}[/info]"
 
